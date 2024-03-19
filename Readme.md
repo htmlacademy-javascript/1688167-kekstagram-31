@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Oleksandr Kotovskyi](https://up.htmlacademy.ru/javascript/31/user/1688167).
-* Наставник: `Неизвестно`.
+* Наставник: `Кексобот`.
 
 ---
 
