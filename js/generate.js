@@ -1,58 +1,63 @@
 import { getRandom, createNonrepeatRandomId } from "./random.js";
 import { data } from "./data.js";
 
+// ───── реструктуризація ─────
+
+const { descriptionsList, messageList, nameList } = data;
+
 // ─────  ─────
 
-let count = 25;
-let maxRandomComments = 30;
+const COUNT_CARDS = 25;
+const MAX_RANDOM_COMMENTS = 5;
+const id = createNonrepeatRandomId(1, COUNT_CARDS);
+const MAX_ID_COMMENT = 500;
+const photoId = createNonrepeatRandomId(1, COUNT_CARDS);
 
-const id = createNonrepeatRandomId(1, count);
-const maxIdComment = 500;
-const photoId = createNonrepeatRandomId(1, count);
-
-function generateCard() {
+function generateCard(paramMaxRndomComments) {
   return {
     id: id(),
     url: `photos/${photoId()}.jpg`,
-    description: getRandom(data.descriptionsList),
+    description: getRandom(descriptionsList),
     likes: getRandom([15, 200]),
-    comments: generateCommentsArray(getRandom(maxRandomComments)),
+    comments: generateCommentsArray(
+      getRandom([0, paramMaxRndomComments]),
+      MAX_ID_COMMENT
+    ),
   };
 }
 
-function generateCardsArray(params) {
-  let array = [];
-
-  for (let index = 0; index < params; index++) {
-    array.push(generateCard());
-  }
-
-  return array;
-}
-
-function generateComment(params) {
+function generateComment(paramId) {
   return {
-    id: params(),
+    id: paramId(),
     avatar: `img/avatar-${getRandom(6)}.svg`,
-    message: getRandom(data.messageList),
-    name: getRandom(data.nameList),
+    message: getRandom(messageList),
+    name: getRandom(nameList),
   };
 }
 
-function generateCommentsArray(params) {
-  const idComment = createNonrepeatRandomId(1, maxIdComment);
+function generateCommentsArray(paramCommentsArray, paramMaxIdComment) {
+  const idComment = createNonrepeatRandomId(1, paramMaxIdComment);
+  const array = [];
 
-  let array = [];
-
-  for (let index = 0; index < params; index++) {
+  for (let index = 0; index < paramCommentsArray; index++) {
     array.push(generateComment(idComment));
   }
 
+  console.log("test  array: ", array);
   return array;
 }
 
-// console.log(
-//   "test object : ",
-//   generateCardsArray(count)
-//   // JSON.stringify(generateCardsArray(count), null, 2)
-// );
+function generateCardsArray(paramCountCards) {
+  const array = [];
+
+  for (let index = 0; index < paramCountCards; index++) {
+    array.push(generateCard(MAX_RANDOM_COMMENTS));
+  }
+
+  console.log("test  array: ", array);
+  return array;
+}
+
+generateCardsArray(COUNT_CARDS);
+
+export { generateCardsArray };

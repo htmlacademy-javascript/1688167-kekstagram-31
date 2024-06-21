@@ -1,17 +1,17 @@
-//  { id: ,
-//    url: ,
-//    description: ,
-//    likes: ,
-//    comments:
-//      [
-//        {
-//        id: ,
-//        avatar: ,
-//        message: ,
-//        name: ,
-//        },
-//      ]
-//  }
+// const TEMPLATE = {
+//   id: "",
+//   url: "",
+//   description: "",
+//   likes: "",
+//   comments: [
+//     {
+//       id: "",
+//       avatar: "",
+//       message: "",
+//       name: "",
+//     },
+//   ],
+// };
 
 const data = {
   messageList: [
