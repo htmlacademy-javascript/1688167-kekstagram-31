@@ -1,4 +1,4 @@
-function getRandom(data = 2, round = 1) {
+function getRandomNumber(data = 2, round = 1) {
   let type = typeof data;
   let rand;
   let roundKompensate = 1;
@@ -62,11 +62,11 @@ function getRandom(data = 2, round = 1) {
 
 // ─────  ─────
 
-function createNonrepeatRandomId(min, max) {
+function getNonrepeatRandomId(min, max) {
   const usedId = [];
   let maxIdList = max - min;
   let lastId;
-  let currentId = getRandom([min, max]);
+  let currentId = getRandomNumber([min, max]);
 
   return function () {
     if (usedId.length - 1 >= maxIdList) {
@@ -82,7 +82,7 @@ function createNonrepeatRandomId(min, max) {
     }
 
     while (usedId.includes(currentId)) {
-      currentId = getRandom([min, max]);
+      currentId = getRandomNumber([min, max]);
     }
 
     usedId.push(currentId);
@@ -92,4 +92,4 @@ function createNonrepeatRandomId(min, max) {
   };
 }
 
-export { getRandom, createNonrepeatRandomId };
+export { getRandomNumber, getNonrepeatRandomId };
