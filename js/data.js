@@ -1,20 +1,20 @@
-//  { id: ,
-//    url: ,
-//    description: ,
-//    likes: ,
-//    comments:
-//      [
-//        {
-//        id: ,
-//        avatar: ,
-//        message: ,
-//        name: ,
-//        },
-//      ]
-//  }
+// const TEMPLATE = {
+//   id: "",
+//   url: "",
+//   description: "",
+//   likes: "",
+//   comments: [
+//     {
+//       id: "",
+//       avatar: "",
+//       message: "",
+//       name: "",
+//     },
+//   ],
+// };
 
-const data = {
-  messageList: [
+const DATA = {
+  messagesList: [
     "Всё отлично!",
     "В целом всё неплохо. Но не всё.",
     "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
@@ -29,7 +29,7 @@ const data = {
     "Трохи розчарований деякими деталями на фотографії.",
   ],
 
-  nameList: [
+  namesList: [
     "Олександр",
     "Катерина",
     "Михайло",
@@ -81,4 +81,4 @@ const data = {
   ],
 };
 
-export { data };
+export { DATA };
